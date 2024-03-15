@@ -1,15 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  fsize: 16,
+  fsize: 50,
+  color: "red",
 };
 
 const FontSizeReducer = createSlice({
   name: "FontSizeReducer",
   initialState,
-  reducers: {},
+  reducers: {
+    changeFontSizeAction: (state, action) => {
+      console.log("number", action.payload);
+      state.fsize += action.payload;
+    },
+  },
 });
 
-export const {} = FontSizeReducer.actions;
+export const { changeFontSizeAction } = FontSizeReducer.actions;
 
 export default FontSizeReducer.reducer;

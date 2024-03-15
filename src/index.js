@@ -13,6 +13,7 @@ import UseEffect_didmount from "./page/DemoUseEffect/UseEffect_didmount";
 import UseEffect_didUpdate from "./page/DemoUseEffect/UseEffect_didUpdate";
 import UseEffect_Unmount from "./page/DemoUseEffect/UseEffect_Unmount";
 import { ChangeFontSizeRedux } from "./page/DemoHookRedux/ChangeFontSizeRedux";
+import ComentRedux from "./page/DemoHookRedux/ComentRedux";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -33,6 +34,7 @@ root.render(
           ></Route>
           <Route path="effect-unmount" element={<UseEffect_Unmount />}></Route>
           <Route path="redux-fs" element={<ChangeFontSizeRedux />}></Route>
+          <Route path="redux-comment" element={<ComentRedux />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
