@@ -8,11 +8,11 @@ const initialState = {
   arrComment: [
     {
       name: "lâm",
-      cotent: "hello bc64",
+      content: "hello bc64",
     },
     {
       name: "Nam",
-      cotent: "hello cybersoft",
+      content: "hello cybersoft",
     },
   ],
 };
@@ -26,9 +26,13 @@ const CommentReducer = createSlice({
       let { name, value } = action.payload;
       state.userComment[name] = value;
     },
+    postCommentAction: (state, action) => {
+      state.arrComment.push(state.userComment);
+    },
   },
 });
 
-export const { updateUserCommentAction } = CommentReducer.actions;
+export const { updateUserCommentAction, postCommentAction } =
+  CommentReducer.actions;
 
 export default CommentReducer.reducer;

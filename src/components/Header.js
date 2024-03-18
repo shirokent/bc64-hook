@@ -95,6 +95,24 @@ const Header = () => {
                     Redux comment
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to="use-ref"
+                    className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                    aria-current="page"
+                  >
+                    Use ref
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="formik"
+                    className="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white"
+                    aria-current="page"
+                  >
+                    Hook formik
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>

@@ -1,10 +1,15 @@
 // rafc
 
 import React from "react";
-import { updateUserCommentAction } from "../../redux/reducer/CommentReducer";
-import { useDispatch } from "react-redux";
+import {
+  postCommentAction,
+  updateUserCommentAction,
+} from "../../redux/reducer/CommentReducer";
+import { useDispatch, useSelector } from "react-redux";
 
 const ComentRedux = () => {
+  let { arrComment } = useSelector((state) => state.commentReducer);
+
   let dispatch = useDispatch();
 
   const handleChangeValue = (e) => {
@@ -21,8 +26,29 @@ const ComentRedux = () => {
     dispatch(action);
   };
 
+  let handleRenderListComment = () => {
+    return arrComment.map((comment, index) => {
+      return (
+        <div key={index} className="border rounded p-3">
+          <div className="flex space-x-5 bg-gray-300 p-1 rounded-lg">
+            <img
+              src={`https://i.pravatar.cc?u=${comment.name}`}
+              alt=""
+              width={50}
+            />
+            <div>
+              <p>{comment.name}</p>
+              <p>{comment.content}</p>
+            </div>
+          </div>
+        </div>
+      );
+    });
+  };
+
   const handleSendComment = () => {
-    
+    let action = postCommentAction();
+    dispatch(action);
   };
 
   return (
@@ -30,15 +56,12 @@ const ComentRedux = () => {
       <h3>Ứng dụng bình luận</h3>
       {/* Chứa bình luận */}
       {/* Binding ra arr comment */}
-      <div className="border rounded p-3">
-        <div className="flex space-x-5 bg-gray-300 p-1 rounded-lg">
-          <img src="https://i.pravatar.cc?u=50" alt="" width={50} />
-          <div>
-            <p>Tên</p>
-            <p>Content abcxyz</p>
-          </div>
-        </div>
+
+      <div className="border rounded p-3 space-y-3">
+        {handleRenderListComment()}
       </div>
+
+      {/* Chuyển lên phần return của hàm handleRenderListComment */}
       {/* Gửi bình luận */}
       <div className="border rounded p-3 space-y-1">
         <div>
