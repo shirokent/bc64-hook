@@ -1,12 +1,12 @@
 // rafce => cú pháp tạo nhanh function component
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const DemoUseState = () => {
-  // Chỉ có function component mới xài được hook
+  // Chỉ có function component mới dùng được hook
 
   const [like, setLike] = useState(100);
   const [view, setView] = useState(15);
-  // //   state = {
+  //   state = {
   //     comment : 2,
   //     tim : 3
   // }

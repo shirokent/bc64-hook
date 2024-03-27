@@ -1,5 +1,5 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const UseEffect_didmount = () => {
   const [number, setNumber] = useState(3);
@@ -9,24 +9,26 @@ const UseEffect_didmount = () => {
     // console.log(
     //   'lần 2 : chạy sau mỗi lần component render lại (sau khi state thay đổi)',
     // );
-    console.log('useEffect chạy');
+    console.log("useEffect chạy");
     getAPIProduct();
-  }, []); //dependency là 1 array rỗng thì useEffect chỉ chạy 1 lần sau khi render
-  console.log('render giao diện');
+  }, []);
+  // dependency là 1 array rỗng thì useEffect chỉ chạy 1 lần sau khi render
+  // Ứng dụng: useEffect thường được dùng để gọi api
+  console.log("render giao diện");
 
   const getAPIProduct = () => {
     let promise = axios({
-      url: 'https://shop.cyberlearn.vn/api/Product',
-      method: 'GET',
+      url: "https://shop.cyberlearn.vn/api/Product",
+      method: "GET",
     });
     promise
       .then((res) => {
         let newProduct = res.data.content;
-        // sau khi gọi api thành công thì đem dữ liệu đưa vào state và binding ra dữ liệu mới
+        // Sau khi gọi api thành công thì đem dữ liệu đưa vào state và binding ra dữ liệu mới
         setArrProduct(newProduct);
       })
       .catch((err) => {
-        console.log('err: ', err);
+        console.log("err: ", err);
       });
   };
   return (
@@ -54,7 +56,7 @@ const UseEffect_didmount = () => {
           return (
             <div className="w-1/5  p-5 ">
               <div className="rounded border">
-                <img src={item.image} alt="" width={'100%'} height={'40%'} />
+                <img src={item.image} alt="" width={"100%"} height={"40%"} />
                 <p className="text-3xl p-2">{item.name}</p>
               </div>
             </div>

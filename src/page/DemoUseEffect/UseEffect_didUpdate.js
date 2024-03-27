@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 export default function UseEffect_didUpdate() {
   const [like, setLike] = useState(1);
   const [number, setNumber] = useState(1);
 
   useEffect(() => {
-    console.log('useEffect chạy');
+    console.log("useEffect chạy");
     // giá trị trong dependency nào thay đổi thì hàm này sẽ kích hoạt (Thường dùng cho việc call API của trang detail, edit ....)
   }, [number]);
   return (
@@ -17,7 +17,7 @@ export default function UseEffect_didUpdate() {
         }}
         className="bg-blue-600 text-white rounded p-2"
       >
-        + LIke
+        + Like
       </button>
       <h3>Number : {number}</h3>
       <button
@@ -26,7 +26,7 @@ export default function UseEffect_didUpdate() {
         }}
         className="bg-green-600 text-white rounded p-2"
       >
-        {' '}
+        {" "}
         + Number
       </button>
     </div>
